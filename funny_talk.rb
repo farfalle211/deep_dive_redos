@@ -103,6 +103,7 @@
         end
       end
     end
+    contact_list
   end
 
 # persons_name = contact_array.select {|information| /"\w+ \w+"/.match(information[0])}
