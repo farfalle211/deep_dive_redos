@@ -15,17 +15,18 @@
 # Commit 3 - Initial Solution
 
 def add_commas(number)
-  number_array = number.to_s.chars
+  original = number.to_s
+  length = original.length
+  result = ""
+  index = 0
 
-  comma_separated_array = []
-  
-  number_array.reverse_each.with_index do |number, index|
-    if index % 3 == 0 && index != 0
-      comma_separated_array << ","
-    end
-    comma_separated_array << number
+  while index < length
+    result = "," + result if index % 3 == 0 && index != 0
+    index += 1
+    result = original[ length - index ] + result
   end
-  comma_separated_array.reverse.join
+
+  result
 end
 
 # Commit 5 - Refactor Solution
@@ -34,7 +35,8 @@ end
 
 # Commit 4 - Write Runner Code / Tests
 
-# puts add_commas(5) == "5" # I've written the first test, write the rest on your own.
+p add_commas(123456789)
+puts add_commas(5) == "5" # I've written the first test, write the rest on your own.
 puts add_commas(123456789) == "123,456,789"
 puts add_commas(1234) == "1,234"
-# puts add_commas(12345) == "12,345"
+puts add_commas(12345) == "12,345"
